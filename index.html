@@ -890,8 +890,6 @@
                 }
 
               /* Shared Grid Styles */
-/* Shared Grid Styles */
-/* Shared Grid Styles */
 .instrument-grid,
 #facilityGrid {
   display: grid;
@@ -906,7 +904,7 @@
   position: relative;
   width: 100%;
   max-width: 300px;
-  height: 320px;           /* ✅ fixed, uniform card height */
+  height: 320px;          /* ✅ uniform card height */
   perspective: 1000px;
   margin: 0 auto;
   transition: transform 0.3s ease;
@@ -926,37 +924,30 @@
   transition: transform 0.6s;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
 }
 
-/* Front Image – full image visible, no cropping */
+/* ✅ Fixed image height — same for all images */
 .instrument-card .card-front img {
   width: 100%;
-  height: auto;
-  max-height: 180px;       /* keeps uniform image height */
-  object-fit: contain;     /* shows entire image */
+  height: 180px;           /* ✅ same height for all images */
+  object-fit: contain;     /* full image visible */
+  object-position: center; /* centered vertically/horizontally */
   border-radius: 10px;
   display: block;
-  background-color: #f5f5f5;
-}
-
-/* Center image + heading neatly */
-.instrument-card .card-front {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #f5f5f5; /* fills empty areas */
+  margin-bottom: 10px;      /* space below image */
 }
 
 /* Heading under image */
 .instrument-card .card-front h3 {
-  margin-top: 10px;
   font-size: 1rem;
   text-align: center;
+  margin-top: auto;
 }
 
 /* Back overlay */
@@ -983,12 +974,12 @@
   transform: rotateY(0deg);
 }
 
-/* Facility Cards – reuse same layout */
+/* Facility Grid */
 #facilityGrid .instrument-card {
   position: relative;
   width: 100%;
   max-width: 300px;
-  height: 320px;          /* ✅ same fixed height */
+  height: 320px;
   perspective: 1000px;
   margin: 0 auto;
 }
@@ -1007,34 +998,27 @@
   transition: transform 0.6s;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
 }
 
-/* Front Image – show full image */
+/* ✅ Fixed image height for facility grid too */
 #facilityGrid .instrument-card .card-front img {
   width: 100%;
-  height: auto;
-  max-height: 180px;
+  height: 180px;
   object-fit: contain;
+  object-position: center;
   border-radius: 10px;
   display: block;
   background-color: #f5f5f5;
+  margin-bottom: 10px;
 }
 
-#facilityGrid .instrument-card .card-front {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Heading under image */
+/* Heading */
 #facilityGrid .instrument-card .card-front h3 {
-  margin-top: 10px;
   font-size: 1rem;
 }
 
@@ -1053,48 +1037,47 @@
   border-radius: 10px;
 }
 
-/* Flip effect on hover */
+/* Flip effect */
 #facilityGrid .instrument-card:hover .card-front {
   transform: rotateY(180deg);
 }
-
 #facilityGrid .instrument-card:hover .card-back {
   transform: rotateY(0deg);
 }
 
 /* ✅ Responsive adjustments */
 @media (max-width: 768px) {
-  .instrument-grid,
-  #facilityGrid {
-    gap: 15px;
-  }
-
   .instrument-card,
   #facilityGrid .instrument-card {
     max-width: 90%;
-    height: 320px; /* same fixed height on tablets */
+    height: 320px; /* maintain equal card height */
   }
 
   .instrument-card .card-front img,
   #facilityGrid .instrument-card .card-front img {
-    max-height: 200px;
+    height: 180px; /* same fixed height */
   }
 
   .instrument-card .card-front h3,
   #facilityGrid .instrument-card .card-front h3 {
     font-size: 1.05rem;
   }
+
+  .instrument-grid,
+  #facilityGrid {
+    gap: 15px;
+  }
 }
 
 @media (max-width: 480px) {
   .instrument-card,
   #facilityGrid .instrument-card {
-    height: 320px; /* ✅ maintain equal height even on phones */
+    height: 320px;
   }
 
   .instrument-card .card-front img,
   #facilityGrid .instrument-card .card-front img {
-    max-height: 180px;
+    height: 160px; /* slightly smaller on very small screens */
   }
 
   .instrument-card .card-back,
@@ -4782,6 +4765,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

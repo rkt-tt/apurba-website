@@ -1025,11 +1025,11 @@
 
                 /* Front Image */
                 #facilityGrid .instrument-card .card-front img {
-                  width: 100%;        /* fills card width */
-                  height: 180px;      /* same as instrumentGrid front image */
-                  object-fit: cover;  /* preserves aspect ratio and crops like instrumentGrid */
-                  border-radius: 10px;
-                  display: block;
+                  width: 100%;
+  aspect-ratio: 4 / 3; /* responsive proportional height */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
                 }
 
                 /* Heading under image */
@@ -4739,6 +4739,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

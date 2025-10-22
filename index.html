@@ -939,13 +939,16 @@
                 }
 
                 /* Front Image */
-                .instrument-card .card-front img {
-                  width: 100%;        /* fills card width */
-                  height: 180px;      /* consistent with instrument grid */
-                  object-fit: cover;  /* crop proportionally */
-                  border-radius: 10px;
-                  display: block;
-                }
+                .instrument-card .card-front img,
+#facilityGrid .instrument-card .card-front img {
+  width: 100%;
+  height: auto;        /* adjust automatically */
+  max-height: 180px;   /* limit size but don’t crop */
+  object-fit: contain; /* ensures full image is visible */
+  border-radius: 10px;
+  display: block;
+}
+
 
                 /* Heading under image */
                 .instrument-card .card-front h3 {
@@ -4736,6 +4739,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

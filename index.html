@@ -889,177 +889,186 @@
                   margin-left: 0;
                 }
 
-                /* Shared Grid Styles */
-                .instrument-grid {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                  gap: 20px;
-                  margin-top: 30px;
-                  justify-items: center; /* center cards in grid cells */
-                }
-
-               /* Shared Grid Styles */
-                .instrument-grid {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                  gap: 20px;
-                  margin-top: 30px;
-                  justify-items: center; /* center cards in grid cells */
-                }
-
-                /* Shared Card Styles */
-                .instrument-card {
-                  position: relative;
-                  width: 100%;         /* fill the grid column */
-                  max-width: 300px;    /* optional: same for both grids */
-                  height: 300px;       /* same height for both grids */
-                  perspective: 1000px;
-                  margin: 0 auto;
-                }
-
-                .instrument-card .card-front,
-                .instrument-card .card-back {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  backface-visibility: hidden;
-                  border-radius: 10px;
-                  overflow: hidden;
-                  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                  transition: transform 0.6s;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  text-align: center;
-                  padding: 15px;
-                  box-sizing: border-box;
-                }
-.instrument-card,
-#facilityGrid .instrument-card {
-  height: 350px; /* increase total card height */
+              /* Shared Grid Styles */
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  justify-items: center; /* center cards in grid cells */
 }
 
-/* Front Image – Show entire image without cropping */
-.instrument-card .card-front img,
-#facilityGrid .instrument-card .card-front img {
+/* Shared Card Styles */
+.instrument-card {
+  position: relative;
+  width: 100%;         /* fill the grid column */
+  max-width: 300px;    /* optional: same for both grids */
+  height: 300px;       /* same height for both grids */
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.instrument-card .card-front,
+.instrument-card .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;        /* keeps full image height */
-  max-height: 180px;   /* prevents it from becoming too tall */
-  object-fit: contain; /* ensures the full image is visible */
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Front Image – Show full image without cropping */
+.instrument-card .card-front img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;  /* no cropping */
   border-radius: 10px;
   display: block;
-  background-color: #f5f5f5; /* optional: subtle background fill */
+  background-color: #f5f5f5; /* optional filler */
 }
 
+/* Center image and heading neatly */
+.instrument-card .card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-                /* Front Image */
-                .instrument-card .card-front img,
+/* Heading under image */
+.instrument-card .card-front h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Back overlay */
+.instrument-card .card-back {
+  background: rgba(74, 0, 224, 0.9); /* purple overlay */
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Flip effect on hover */
+.instrument-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.instrument-card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Facility Grid Container */
+#facilityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  justify-items: center; /* center cards in grid cells */
+}
+
+/* Each Card */
+#facilityGrid .instrument-card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+/* Front and Back sides */
+#facilityGrid .instrument-card .card-front,
+#facilityGrid .instrument-card .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Front Image – Show full image without cropping */
 #facilityGrid .instrument-card .card-front img {
   width: 100%;
-  aspect-ratio: 4 / 3; /* responsive proportional height */
+  height: auto;
+  max-height: 180px;
   object-fit: contain;
   border-radius: 10px;
   display: block;
+  background-color: #f5f5f5;
 }
 
+/* Center image and heading neatly */
+#facilityGrid .instrument-card .card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Heading under image */
+#facilityGrid .instrument-card .card-front h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+}
 
-                /* Heading under image */
-                .instrument-card .card-front h3 {
-                  margin-top: 10px;
-                  font-size: 1rem;
-                  text-align: center;
-                }
-
-                /* Back overlay */
-                .instrument-card .card-back {
-                  background: rgba(74, 0, 224, 0.9); /* purple overlay */
-                  color: white;
-                  transform: rotateY(180deg);
-                  font-size: 0.9rem;
-                  line-height: 1.2;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  text-align: center;
-                  padding: 15px;
-                  border-radius: 10px;
-                }
-
-                /* Flip effect on hover */
-                .instrument-card:hover .card-front {
-                  transform: rotateY(180deg);
-                }
-
-                .instrument-card:hover .card-back {
-                  transform: rotateY(0deg);
-                }
-
-
-                /* Facility Grid Container */
-                #facilityGrid {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                  gap: 20px;
-                  margin-top: 30px;
-                  justify-items: center; /* center cards in grid cells */
-                }
-
-                /* Each Card */
-                #facilityGrid .instrument-card {
-                  position: relative;
-                  width: 100%;          /* fill the grid column like instrumentGrid */
-                  max-width: 300px;     /* optional: match instrument card width */
-                  height: 300px;        /* same height as instrumentGrid */
-                  perspective: 1000px;
-                  margin: 0 auto;
-                }
-
-                /* Front and Back sides */
-                #facilityGrid .instrument-card .card-front,
-                #facilityGrid .instrument-card .card-back {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  backface-visibility: hidden;
-                  border-radius: 10px;
-                  overflow: hidden;
-                  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                  transition: transform 0.6s;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  text-align: center;
-                  padding: 15px;
-                  box-sizing: border-box;
-                }
-                /* Front Image */
-                /* Front Image – Show entire image without cropping */
-.instrument-card .card-front img,
-#facilityGrid .instrument-card .card-front img {
-  width: 100%;
-  height: auto;        /* keeps full image height */
-  max-height: 180px;   /* prevents it from becoming too tall */
-  object-fit: contain; /* ensures the full image is visible */
+/* Back overlay */
+#facilityGrid .instrument-card .card-back {
+  background: rgba(74, 0, 224, 0.9);
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
   border-radius: 10px;
-  display: block;
-  background-color: #f5f5f5; /* optional: subtle background fill */
 }
 
+/* Flip effect on hover */
+#facilityGrid .instrument-card:hover .card-front {
+  transform: rotateY(180deg);
+}
 
-              
+#facilityGrid .instrument-card:hover .card-back {
+  transform: rotateY(0deg);
+}
 
-                /* Heading under image */
-                #facilityGrid .instrument-card .card-front h3 {
-                  margin-top: 10px;
-                  font-size: 1rem;
-                }
 
                 /* Back overlay */
                 #facilityGrid .instrument-card .card-back {
@@ -4762,6 +4771,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

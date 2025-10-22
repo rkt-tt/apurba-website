@@ -942,11 +942,18 @@
   height: 350px; /* increase total card height */
 }
 
+/* Front Image – Show entire image without cropping */
 .instrument-card .card-front img,
 #facilityGrid .instrument-card .card-front img {
-  height: 220px; /* increase visible image height */
-  object-fit: contain;
+  width: 100%;
+  height: auto;        /* keeps full image height */
+  max-height: 180px;   /* prevents it from becoming too tall */
+  object-fit: contain; /* ensures the full image is visible */
+  border-radius: 10px;
+  display: block;
+  background-color: #f5f5f5; /* optional: subtle background fill */
 }
+
 
                 /* Front Image */
                 .instrument-card .card-front img,
@@ -1033,14 +1040,18 @@
                   box-sizing: border-box;
                 }
                 /* Front Image */
-                .instrument-card .card-front img,
+                /* Front Image – Show entire image without cropping */
+.instrument-card .card-front img,
 #facilityGrid .instrument-card .card-front img {
   width: 100%;
-  aspect-ratio: 4 / 3; /* responsive proportional height */
-  object-fit: contain;
+  height: auto;        /* keeps full image height */
+  max-height: 180px;   /* prevents it from becoming too tall */
+  object-fit: contain; /* ensures the full image is visible */
   border-radius: 10px;
   display: block;
+  background-color: #f5f5f5; /* optional: subtle background fill */
 }
+
 
               
 
@@ -4751,6 +4762,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

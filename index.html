@@ -937,6 +937,16 @@
                   padding: 15px;
                   box-sizing: border-box;
                 }
+.instrument-card,
+#facilityGrid .instrument-card {
+  height: 350px; /* increase total card height */
+}
+
+.instrument-card .card-front img,
+#facilityGrid .instrument-card .card-front img {
+  height: 220px; /* increase visible image height */
+  object-fit: cover;
+}
 
                 /* Front Image */
                 .instrument-card .card-front img,
@@ -1022,15 +1032,17 @@
                   padding: 15px;
                   box-sizing: border-box;
                 }
-
                 /* Front Image */
-                #facilityGrid .instrument-card .card-front img {
-                  width: 100%;
+                .instrument-card .card-front img,
+#facilityGrid .instrument-card .card-front img {
+  width: 100%;
   aspect-ratio: 4 / 3; /* responsive proportional height */
   object-fit: cover;
   border-radius: 10px;
   display: block;
-                }
+}
+
+              
 
                 /* Heading under image */
                 #facilityGrid .instrument-card .card-front h3 {
@@ -4739,6 +4751,7 @@ NTTM: (Purchased with grant from NTTM)</p>
         </script>
     </body>
 </html>
+
 
 
 

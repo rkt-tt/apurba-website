@@ -1,0 +1,40 @@
+.btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #4a00e0;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #8e2de2;
+    }
+
+    #studentsTable {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      display: none; /* hidden initially */
+    }
+
+    #studentsTable th, #studentsTable td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    #studentsTable th {
+      background: linear-gradient(45deg, #4a00e0, #8e2de2);
+      color: white;
+    }
+
+    #studentsTitle {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: none;
+    }

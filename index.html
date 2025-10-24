@@ -4288,14 +4288,14 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         </script>
         <!-- grid.js -->
-        <script>
+        <!--script>
             document.getElementById("viewStudentsBtn").addEventListener("click", function (e) {
                 e.preventDefault();
                 const grid = document.getElementById("studentsGrid");
                 grid.style.display = grid.style.display === "none" || grid.style.display === "" ? "grid" : "none";
                 this.textContent = grid.style.display === "grid" ? "Hide Students" : "View All Students";
             });
-        </script>
+    </script-->
 
         <!-- Facility.js -->
 
@@ -4567,7 +4567,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const grid = document.getElementById("studentsGrid");
                 grid.style.display = grid.style.display === "none" || grid.style.display === "" ? "grid" : "none";
-                this.textContent = grid.style.display === "grid" ? "Hide PhD" : "View All Students";
+                this.textContent = grid.style.display === "grid" ? "Hide PhD" : "PhD";
             });
             // Step 4: Button click to toggle visibility
             document.getElementById("viewStudentsBtn").addEventListener("click", function (e) {
@@ -4799,6 +4799,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </script>
     </body>
 </html>
+
 
 
 

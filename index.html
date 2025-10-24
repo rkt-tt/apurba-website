@@ -2355,13 +2355,13 @@ protection.<br><br>NTTM/DST: In House Developed</p>
         <!-- Students Section -->
         <section id="students">
             <div class="container">
-                <h2 class="section-title">View All Students</h2>
+                <h2 class="section-title"></h2>
                 <div style="text-align: center; margin-top: 40px">
                     <a href="#" class="btn" id="viewStudentsBtn">PhD</a>
                     <a href="#" class="btn" id="toggleMtechBtn">MTECH</a>
                 </div>
 
-                <!-- View All Students Button -->
+                
 
                 <!--a href="#" class="btn" id="hideMtechBtn">Hide MTECH</!--a-->
 
@@ -4293,7 +4293,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const grid = document.getElementById("studentsGrid");
                 grid.style.display = grid.style.display === "none" || grid.style.display === "" ? "grid" : "none";
-                this.textContent = grid.style.display === "grid" ? "Hide Students" : "View All Students";
+                this.textContent = grid.style.display === "grid" ? "Hide Students" : "";
             });
     </script-->
 
@@ -4799,6 +4799,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </script>
     </body>
 </html>
+
 
 
 

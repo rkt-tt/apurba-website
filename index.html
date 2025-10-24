@@ -421,11 +421,24 @@
                             color: var(--accent2);
                         }
 
-                        .-social {
-                            display: flex;
-                            gap: 15px;
-                            margin-top: 20px;
-                        }
+                       
+                        .footer-social {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 10px; /* space between icons */
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #00acee; /* example hover color */
+}
 
                         .social-icon {
                             width: 40px;
@@ -4811,6 +4824,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </script>
     </body>
 </html>
+
 
 
 

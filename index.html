@@ -4251,7 +4251,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     year: "2003"
                 },
                 { name: "S. Chaudhuri", project: "Influence of fibre openness on yarn properties", year: "2002" }
-                // ... you can continue adding the rest of the 56 students here
+               
             ];
 
             const toggleBtn = document.getElementById("toggleMtechBtn");
@@ -4288,14 +4288,14 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         </script>
         <!-- grid.js -->
-        <!--script>
+        <script>
             document.getElementById("viewStudentsBtn").addEventListener("click", function (e) {
                 e.preventDefault();
                 const grid = document.getElementById("studentsGrid");
                 grid.style.display = grid.style.display === "none" || grid.style.display === "" ? "grid" : "none";
-                this.textContent = grid.style.display === "grid" ? "Hide Students" : "";
+                this.textContent = grid.style.display === "grid" ? "Hide Students" : "View All Students";
             });
-    </script-->
+    </script>
 
         <!-- Facility.js -->
 
@@ -4799,6 +4799,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </script>
     </body>
 </html>
+
 
 
 

@@ -1,6 +1,11 @@
 
    const publications = {
-       
+       "2026": [
+  {
+    text: "Rathour R, Islam MdA, Das A, Alagirusamy R. Protective and mechanical properties of outer shell fabric of thermal/fire protective clothing. Progress in Engineering Science. 2025 Sep;2(3):100120.",
+    link: "https://linkinghub.elsevier.com/retrieve/pii/S2950425225000726"
+  },
+],
                 "2025": [
   {
     text: "Rathour R, Islam MdA, Das A, Alagirusamy R. Protective and mechanical properties of outer shell fabric of thermal/fire protective clothing. Progress in Engineering Science. 2025 Sep;2(3):100120.",

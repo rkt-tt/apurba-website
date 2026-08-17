@@ -1,11 +1,26 @@
 
    const publications = {
-       "2026": [
-  {
-    text: "Rathour R, Islam MdA, Das A, Alagirusamy R. Protective and mechanical properties of outer shell fabric of thermal/fire protective clothing. Progress in Engineering Science. 2025 Sep;2(3):100120.",
-    link: "https://linkinghub.elsevier.com/retrieve/pii/S2950425225000726"
-  },
-],
+
+                "2026": [
+       
+        {
+            text: "Singh, S., Maurya, S. K., Srivastava, S., Das, A., Kumar, N., & Kumar, B. (2026). Study on cut-protective performance of composite yarn-based knitted UHMWPE fabrics for industrial safety applications: influence of stitch density, repeated rubbing, washing, and fabric stretchability. The Journal of The Textile Institute, 1–18.",
+            link: "https://doi.org/10.1080/00405000.2026.2706377"
+        },
+        {
+            text: "T. A. Mir, S. A. Wagay, S. W. Ali, and A. Das, in Functional Metal and Metal Oxide Nanoparticles for Textile Applications, ed. S. Ul Islam, Royal Society of Chemistry, 2026, vol. 74, ch. 10, pp. 329–350."
+        },
+        {
+            text: "Singh, S., Maurya, S.K., Gowthamraj, G. et al. Cut-Protective Performance of High-Performance Yarn-Based Woven Textiles: Influence of Yarn Structure and Weave Designs. Fibers Polym (2026).",
+            link: "https://doi.org/10.1007/s12221-026-01516-3"
+        },
+        {
+            text: "Hasan MZ, Rathour R, Das A, Alagirusamy R, Kumar N (2026). Moisture management behavior of cut protective fabric produced from high-performance core spun yarn. Research Journal of Textile and Apparel, Vol. 30 No. 3, pp. 515–529.",
+            link: "https://doi.org/10.1108/RJTA-03-2025-0050"
+        },
+    ],
+
+     
                 "2025": [
   {
     text: "Rathour R, Islam MdA, Das A, Alagirusamy R. Protective and mechanical properties of outer shell fabric of thermal/fire protective clothing. Progress in Engineering Science. 2025 Sep;2(3):100120.",
@@ -1166,56 +1181,86 @@
 };
 
 
+const availableYears = Object.keys(publications)
+    .sort((a, b) => Number(b) - Number(a));
 
-            const availableYears = Object.keys(publications).sort((a, b) => Number(b) - Number(a));
-            let currentIndex = 0;
+let currentIndex = 0;
 
-            const yearLabel = document.getElementById("yearLabel");
-            const pubList = document.getElementById("pubList");
-            const btnPrev = document.getElementById("btnPrev");
-            const btnNext = document.getElementById("btnNext");
+const yearLabel = document.getElementById("yearLabel");
+const pubList = document.getElementById("pubList");
+const btnPrev = document.getElementById("btnPrev");
+const btnNext = document.getElementById("btnNext");
 
-            function render() {
-                const year = availableYears[currentIndex];
-                yearLabel.textContent = year || "";
-                pubList.innerHTML = "";
+function render() {
 
-                const entries = publications[year] || [];
-                if (entries.length === 0) {
-                    pubList.innerHTML = "<li>No publications for " + year + ".</li>";
-                } else {
-                    entries.forEach((p, i) => {
-                        const li = document.createElement("li");
-                        li.innerHTML =
-                            "<strong>" +
-                            (i + 1) +
-                            ".</strong> " +
-                            p.text +
-                            (p.link
-                                ? ' <br><a href="' + p.link + '" target="_blank">Available from: ' + p.link + "</a>"
-                                : "");
-                        pubList.appendChild(li);
-                    });
-                }
+    const year = availableYears[currentIndex];
 
-                btnPrev.disabled = currentIndex === 0;
-                btnNext.disabled = currentIndex === availableYears.length - 1;
+    yearLabel.textContent = year || "";
+    pubList.innerHTML = "";
+
+    const entries = publications[year] || [];
+
+    if (entries.length === 0) {
+
+        const li = document.createElement("li");
+        li.textContent = "No publications for " + year + ".";
+        pubList.appendChild(li);
+
+    } else {
+
+        entries.forEach((p, i) => {
+
+            const li = document.createElement("li");
+
+            const number = document.createElement("strong");
+            number.textContent = (i + 1) + ". ";
+
+            li.appendChild(number);
+
+            const text = document.createTextNode(p.text);
+            li.appendChild(text);
+
+            if (p.link) {
+
+                const br = document.createElement("br");
+                li.appendChild(br);
+
+                const link = document.createElement("a");
+
+                link.href = p.link;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = "Available from: " + p.link;
+
+                li.appendChild(link);
             }
 
-            function prevYear() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    render();
-                }
-            }
-            function nextYear() {
-                if (currentIndex < availableYears.length - 1) {
-                    currentIndex++;
-                    render();
-                }
-            }
+            pubList.appendChild(li);
+        });
+    }
 
-            btnPrev.addEventListener("click", prevYear);
-            btnNext.addEventListener("click", nextYear);
+    btnPrev.disabled = currentIndex === 0;
+    btnNext.disabled =
+        currentIndex === availableYears.length - 1;
+}
 
-            render();
+function prevYear() {
+
+    if (currentIndex > 0) {
+        currentIndex--;
+        render();
+    }
+}
+
+function nextYear() {
+
+    if (currentIndex < availableYears.length - 1) {
+        currentIndex++;
+        render();
+    }
+}
+
+btnPrev.addEventListener("click", prevYear);
+btnNext.addEventListener("click", nextYear);
+
+render();
